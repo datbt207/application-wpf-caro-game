@@ -1,0 +1,152 @@
+﻿<Window x:Class="CaroGame.Manager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CaroGame"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Manager" Height="720" Width="1280">
+    <Grid Width="1280" Height="704.04">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="0,0,50,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Button Click="Exit_Click" Margin="20,20,20,20" Background="{x:Null}" BorderBrush="{x:Null}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Image Source="BackArrow.png"></Image>
+            </Button>
+
+            <Label Grid.Column="1" Content="USER MANAGER" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="36" />
+
+            <DataGrid Grid.Row="1" Grid.Column="1" ColumnWidth="*"
+                      SelectedCellsChanged="UserDataGrid_SelectedCellsChanged"
+                      x:Name="UserDataGrid" IsReadOnly="True" CanUserAddRows="False" FontWeight="Normal" FontSize="14" >
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Height" Value="25"/>
+                    </Style>
+                </DataGrid.CellStyle>
+
+            </DataGrid>
+
+
+        </Grid>
+
+        <Border Margin="10 10 40 40" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.MenuBrushKey}}">
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Border.Resources>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+
+                </Grid.RowDefinitions>
+                <Border Margin=" 60 20 60 30" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}">
+                    <Border.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Border.Resources>
+
+                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="TOOL" FontWeight="Bold" FontSize="36"/>
+                </Border>
+
+                <Grid Grid.Row="1" Margin="10 0 10 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" Height="26" x:Name="textBlockFirstname" Text="First Name:" FontSize="14" FontWeight="Bold"  />
+                    <TextBlock Grid.Column="0" Grid.Row="1" Height="26" x:Name="textBlockLastName" Text="Last Name:" FontSize="14" FontWeight="Bold"  />
+                    <TextBlock Grid.Column="0" Grid.Row="2" Height="26" x:Name="textBlockEmailId" Text="Email" FontSize="14" FontWeight="Bold"  />
+                    <TextBlock Grid.Column="0" Grid.Row="3" Height="26" x:Name="textBlockPassword" Text="Password:" FontSize="14" FontWeight="Bold"   />
+                    <TextBlock Grid.Column="0" Grid.Row="4" Height="26" x:Name="textBlockAddress" Text="Address" FontSize="14" FontWeight="Bold"  />
+
+                    <TextBox Grid.Column="1" Grid.Row="0" Height="26"  x:Name="textBoxFirstName" FontSize="14"    />
+                    <TextBox Grid.Column="1" Grid.Row="1" Height="26"  x:Name="textBoxLastName" FontSize="14"  />
+                    <TextBox Grid.Column="1" Grid.Row="2" Height="26"  x:Name="textBoxEmail" FontSize="14"   />
+                    <TextBox Grid.Column="1" Grid.Row="3" Height="26"  x:Name="passwordBox1" FontSize="14"   />
+                    <!--For password-->
+                    <TextBox Grid.Column="1" Grid.Row="4" Height="26"  x:Name="textBoxAddress" FontSize="14"  />
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="Delete_Click" Content="Delete" Margin="10 20 10 20" Grid.Column="0" FontWeight="Bold" FontSize="14">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+
+                    <Button Click="Add_Click" Content="Add" Margin="10 20 10 20" Grid.Column="1" FontSize="14" FontWeight="Bold">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button Click="Update_Click" Content="Update" Margin="10 20 10 20" Grid.Column="2" FontWeight="Bold" FontSize="14">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+
+
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="5" Height="26" x:Name ="errormessage"  FontSize="14" />
+                </Grid>
+                
+            </Grid>
+
+
+
+
+        </Border>
+
+
+    </Grid>
+</Window>
