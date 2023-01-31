@@ -1,4 +1,4 @@
-## CHỨC NĂNG
+## Chức năng
   - CRUD User Name, Password, Address,
   - Chức năng đăng nhập bằng UserName và Password
   - Chơi Game Caro với máy tính, thực hiện lưu trận đấu và tải lại trận đấu đã lưu
